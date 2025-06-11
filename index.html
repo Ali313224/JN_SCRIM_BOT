@@ -1,0 +1,58 @@
+<!-- index.html --><!DOCTYPE html><html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تسجيل سكرمات - JN_SCRIM_BOT</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="login" class="container">
+    <h2>تسجيل الدخول للمشرفين</h2>
+    <input type="password" id="adminPassword" placeholder="أدخل كلمة السر" />
+    <button onclick="checkPassword()">دخول</button>
+  </div>  <div id="mainForm" class="hidden container">
+    <img src="https://i.ibb.co/k26Ys304" alt="شعار" class="logo" />
+    <h2>تسجيل سكرم ببجي</h2>
+    <label>اسم الفريق:</label>
+    <input type="text" id="teamName" /><label>موعد السكرم:</label>
+<input type="datetime-local" id="scrimTime" />
+
+<label>اسم القائد:</label>
+<input type="text" id="leaderName" />
+
+<label>عدد اللاعبين:</label>
+<select id="playerCount" onchange="generateTeams()">
+  <option value="4">4</option>
+  <option value="8">8</option>
+  <option value="12">12</option>
+  <option value="16">16</option>
+</select>
+
+<div id="teamsContainer"></div>
+
+<button onclick="submitForm()">إرسال إلى ديسكورد</button>
+<div class="footer">
+  <a href="https://www.facebook.com/share/19HRdFsc5x/">فيسبوك</a> |
+  <a href="https://www.instagram.com/elya_m_313/profilecard/?igsh=YmU2aTVxNHhhdjJt">إنستغرام</a>
+  <p>لقد تمت برمجة هذا الموقع بواسطة Ali_Shams_313</p>
+</div>
+
+  </div>  <script src="script.js"></script></body>
+</html><!-- styles.css -->body { background-color: #121212; color: #fff; font-family: sans-serif; text-align: center; padding: 20px; } .container { max-width: 700px; margin: auto; } .hidden { display: none; } input, select, button { display: block; width: 100%; margin: 10px 0; padding: 10px; border-radius: 5px; border: none; } button { background-color: #4caf50; color: white; cursor: pointer; } .logo { width: 100px; margin: 20px auto; } .footer { margin-top: 20px; font-size: 14px; }
+
+<!-- script.js -->const PASSWORD = "ELYA_ADMIN_313";
+
+function checkPassword() { const input = document.getElementById("adminPassword").value; if (input === PASSWORD) { document.getElementById("login").classList.add("hidden"); document.getElementById("mainForm").classList.remove("hidden"); } else { alert("كلمة السر غير صحيحة!"); } }
+
+const members = { "فايروس": "1380981046362898474", "هيثم": "1360200583675379865", "هيرو": "1148152210430107708", "سبيد": "1375364456036433920", "هنتر": "1380867027367100506", "باترو": "1370551180073107536", "روليكس": "1381387460222652558", "انس": "1043393234245787658", "ناروتو": "1198320840912146542", "زومبي": "1291829284825993359", "ماتريكس": "1323720388521230447" };
+
+function generateTeams() { const count = parseInt(document.getElementById("playerCount").value); const teamCount = count / 4; const container = document.getElementById("teamsContainer"); container.innerHTML = ""; for (let t = 1; t <= teamCount; t++) { const teamDiv = document.createElement("div"); teamDiv.innerHTML = <h3>الفريق ${t}</h3>; for (let i = 1; i <= 4; i++) { teamDiv.innerHTML += <input type="text" placeholder="اسم اللاعب ${i}" id="team${t}_name${i}" /> <input type="text" placeholder="دور اللاعب" id="team${t}_role${i}" />; } container.appendChild(teamDiv); } }
+
+function submitForm() { const teamName = document.getElementById("teamName").value; const scrimTime = document.getElementById("scrimTime").value; const leaderName = document.getElementById("leaderName").value; const count = parseInt(document.getElementById("playerCount").value); const teamCount = count / 4;
+
+let content = 📅 **موعد السكرم:** ${scrimTime}\n👤 **قائد التسجيل:** ${leaderName}\n\n;
+
+for (let t = 1; t <= teamCount; t++) { content += 🟦 **الفريق ${t}:**\n; for (let i = 1; i <= 4; i++) { const name = document.getElementById(team${t}_name${i}).value; const role = document.getElementById(team${t}_role${i}).value; const mention = members[name] ? <@${members[name]}> : name; content += ${i}. ${mention} (${role})\n; } content += "\n"; }
+
+fetch("https://discord.com/api/webhooks/1382440597331382272/JtIYPKvhXMsLtHDzDhFVZ4QbNUG2P5NscLSi7WqohLBxy-1k7YsSRUtoppC5DwiA6IxJ", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ content }) }) .then(res => alert("تم الإرسال إلى ديسكورد بنجاح!")) .catch(err => alert("حدث خطأ أثناء الإرسال")); }
+
