@@ -1,0 +1,126 @@
+<!-- index.html --><!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل سكرمات ببجي</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="https://ibb.co/k26Ys304" alt="شعار الموقع" class="logo"><div id="login-page" class="page">
+  <h2>تسجيل الدخول للمشرفين</h2>
+  <input type="password" id="admin-password" placeholder="كلمة السر">
+  <button onclick="login()">دخول</button>
+  <button onclick="showChangePassword()">تغيير كلمة السر</button>
+</div>
+
+<div id="change-password-page" class="page hidden">
+  <h2>تغيير كلمة السر</h2>
+  <input type="password" id="old-password" placeholder="كلمة السر القديمة">
+  <input type="password" id="new-password" placeholder="كلمة السر الجديدة">
+  <button onclick="changePassword()">تأكيد التغيير</button>
+  <button onclick="backToLogin()">رجوع</button>
+</div>
+
+<div id="main-page" class="page hidden">
+  <h2>نموذج تسجيل السكرم</h2>
+  <input type="text" id="team-name" placeholder="اسم الفريق">
+  <input type="text" id="scrim-time" placeholder="موعد السكرم">
+  <input type="text" id="leader-name" placeholder="اسم قائد الفريق">
+
+  <label>اختر 4 أعضاء من الديسكورد:</label>
+  <div class="member-group">
+    <select class="member-select" data-index="1">
+      <option value="">-- اختر عضو --</option>
+      <option value="1380981046362898474">فايروس</option>
+      <option value="1360200583675379865">هيثم</option>
+      <option value="1148152210430107708">هيرو</option>
+      <option value="1375364456036433920">سبيد</option>
+      <option value="1380867027367100506">هنتر</option>
+      <option value="1370551180073107536">باترو</option>
+      <option value="1381387460222652558">روليكس</option>
+      <option value="1043393234245787658">أنس</option>
+      <option value="1198320840912146542">ناروتو</option>
+      <option value="1291829284825993359">زومبي</option>
+      <option value="1323720388521230447">ماتريكس</option>
+      <option value="other">إدخال يدوي</option>
+    </select>
+    <input type="text" class="custom-id-input hidden" placeholder="أدخل ID العضو">
+    <input type="text" class="role-input" placeholder="دور اللاعب (مثل: IGL, Support)">
+  </div>
+
+  <!-- نسخ مجموعة العضو 3 مرات أخرى -->
+  <div class="member-group">
+    <select class="member-select" data-index="2">
+      <option value="">-- اختر عضو --</option>
+      <option value="1380981046362898474">فايروس</option>
+      <option value="1360200583675379865">هيثم</option>
+      <option value="1148152210430107708">هيرو</option>
+      <option value="1375364456036433920">سبيد</option>
+      <option value="1380867027367100506">هنتر</option>
+      <option value="1370551180073107536">باترو</option>
+      <option value="1381387460222652558">روليكس</option>
+      <option value="1043393234245787658">أنس</option>
+      <option value="1198320840912146542">ناروتو</option>
+      <option value="1291829284825993359">زومبي</option>
+      <option value="1323720388521230447">ماتريكس</option>
+      <option value="other">إدخال يدوي</option>
+    </select>
+    <input type="text" class="custom-id-input hidden" placeholder="أدخل ID العضو">
+    <input type="text" class="role-input" placeholder="دور اللاعب (مثل: IGL, Support)">
+  </div>
+
+  <div class="member-group">
+    <select class="member-select" data-index="3">
+      <option value="">-- اختر عضو --</option>
+      <option value="1380981046362898474">فايروس</option>
+      <option value="1360200583675379865">هيثم</option>
+      <option value="1148152210430107708">هيرو</option>
+      <option value="1375364456036433920">سبيد</option>
+      <option value="1380867027367100506">هنتر</option>
+      <option value="1370551180073107536">باترو</option>
+      <option value="1381387460222652558">روليكس</option>
+      <option value="1043393234245787658">أنس</option>
+      <option value="1198320840912146542">ناروتو</option>
+      <option value="1291829284825993359">زومبي</option>
+      <option value="1323720388521230447">ماتريكس</option>
+      <option value="other">إدخال يدوي</option>
+    </select>
+    <input type="text" class="custom-id-input hidden" placeholder="أدخل ID العضو">
+    <input type="text" class="role-input" placeholder="دور اللاعب (مثل: IGL, Support)">
+  </div>
+
+  <div class="member-group">
+    <select class="member-select" data-index="4">
+      <option value="">-- اختر عضو --</option>
+      <option value="1380981046362898474">فايروس</option>
+      <option value="1360200583675379865">هيثم</option>
+      <option value="1148152210430107708">هيرو</option>
+      <option value="1375364456036433920">سبيد</option>
+      <option value="1380867027367100506">هنتر</option>
+      <option value="1370551180073107536">باترو</option>
+      <option value="1381387460222652558">روليكس</option>
+      <option value="1043393234245787658">أنس</option>
+      <option value="1198320840912146542">ناروتو</option>
+      <option value="1291829284825993359">زومبي</option>
+      <option value="1323720388521230447">ماتريكس</option>
+      <option value="other">إدخال يدوي</option>
+    </select>
+    <input type="text" class="custom-id-input hidden" placeholder="أدخل ID العضو">
+    <input type="text" class="role-input" placeholder="دور اللاعب (مثل: IGL, Support)">
+  </div>
+
+  <button onclick="sendToDiscord()">إرسال إلى ديسكورد</button>
+</div>
+
+<footer>
+  <p>
+    <a href="https://www.facebook.com/share/19HRdFsc5x/" target="_blank">فيسبوك</a>
+    |
+    <a href="https://www.instagram.com/elya_m_313/profilecard/?igsh=YmU2aTVxNHhhdjJt" target="_blank">إنستغرام</a>
+  </p>
+  <p>لقد تمت برمجة هذا الموقع بواسطة Ali_Shams_313</p>
+</footer>
+
+  </div>  <script src="script.js"></script></body>
+</html>
