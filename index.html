@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>تسجيل سكرمات ببجي - JN_SCRIM_BOT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="https://i.ibb.co/k26Ys304/logo.png" alt="Logo" />
+  </header>
+
+  <div id="login">
+    <form>
+      <h2>تسجيل الدخول للمشرفين</h2>
+      <input type="password" id="password" placeholder="أدخل كلمة المرور" />
+      <button type="button" onclick="login()">دخول</button>
+      <button type="button" onclick="changePassword()">تغيير كلمة السر</button>
+    </form>
+  </div>
+
+  <div id="main" class="hidden">
+    <form onsubmit="event.preventDefault(); sendTeam();">
+      <h2>تسجيل فريق جديد</h2>
+      <input type="text" id="teamName" placeholder="اسم الفريق" required />
+      <input type="text" id="scrimTime" placeholder="موعد السكرم" required />
+      <input type="text" id="leader" placeholder="اسم قائد الفريق" required />
+
+      <label for="teamSize">عدد أعضاء الفريق:</label>
+      <select id="teamSize" onchange="generatePlayerFields()">
+        <option value="4">4 لاعبين</option>
+        <option value="8">8 لاعبين</option>
+        <option value="16">16 لاعب</option>
+      </select>
+
+      <div id="playersContainer"></div>
+
+      <button type="submit">إرسال الفريق إلى ديسكورد</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>
+      <a href="https://www.facebook.com/share/19HRdFsc5x/">فيسبوك</a> |
+      <a href="https://www.instagram.com/elya_m_313/profilecard/?igsh=YmU2aTVxNHhhdjJt">إنستغرام</a>
+    </p>
+    <p>لقد تمت برمجة هذا الموقع بواسطة Ali_Shams_313</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
