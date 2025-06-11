@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تسجيل سكرم - JN_SCRIM_BOT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div id="login">
+      <img src="https://i.ibb.co/k26Ys304/logo.png" alt="Logo" style="max-height: 100px; margin-bottom: 20px;" />
+      <h2>تسجيل الدخول للمشرفين</h2>
+      <input type="password" id="adminPassword" placeholder="أدخل كلمة السر" />
+      <button onclick="checkPassword()">دخول</button>
+    </div>
+
+    <div id="mainForm" class="hidden">
+      <h2>تسجيل فريق سكرم</h2>
+      <input type="text" id="teamName" placeholder="اسم الفريق" />
+      <input type="text" id="leaderName" placeholder="اسم القائد" />
+      <input type="datetime-local" id="scrimTime" />
+      <label>عدد اللاعبين:</label>
+      <select id="playerCount" onchange="generateTeams()">
+        <option value="4">4</option>
+        <option value="8">8</option>
+        <option value="16">16</option>
+      </select>
+
+      <div id="teamsContainer"></div>
+
+      <button onclick="submitForm()">إرسال إلى ديسكورد</button>
+    </div>
+
+    <footer>
+      <p>لقد تمت برمجة هذا الموقع بواسطة Ali_Shams_313</p>
+      <div class="social">
+        <a href="https://www.facebook.com/share/19HRdFsc5x/" target="_blank">فيسبوك</a> |
+        <a href="https://www.instagram.com/elya_m_313/profilecard/?igsh=YmU2aTVxNHhhdjJt" target="_blank">إنستغرام</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
